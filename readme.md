@@ -3,7 +3,7 @@
 
 ![Static Badge](https://img.shields.io/badge/Build-passing-flat)
 [![Static Badge](https://img.shields.io/badge/docs-blue)](https://jacobnatural.github.io/holiday-manager/index.html)
-# Backend Overview
+## Backend Overview
 Holiday Manager is a secure, scalable, and efficient backend solution built with Spring Boot,
 designed to streamline the management of employee vacation requests. This system provides a
 clean and structured way to handle vacation workflows, offering role-based access, robust validation,
@@ -15,14 +15,14 @@ JWT token-based authentication, Holiday Manager ensures safe and stateless acces
 aligning with modern REST API standards.
 
 Built with maintainability in mind, the application follows best practices in backend development,
-including layered architecture, clear separation of concerns, and comprehensive validation rules to
+including layered architecture, clear separation of concerns, git clone https://github.com/JacobNatural/holiday-manager.gitand comprehensive validation rules to
 prevent invalid or conflicting vacation dates.
 
 Holiday Manager is containerized using Docker, making deployment seamless across environments.
 The system exposes a set of well-documented RESTful endpoints, easily explorable through Swagger UI,
 facilitating smooth integration with frontend or third-party services
 
-# Frontend Overview
+## Frontend Overview
 The frontend is built with React, using a custom router combined with React Context API
 to manage authentication state throughout the application. Routes are protected by a custom
 <ProtectedRoute> component that restricts access based on user authentication.
@@ -74,6 +74,11 @@ docker-compose up -d --build
 ### Access to the Swagger UI:
 ```bash
 http://localhost:8080/swagger-ui/index.html
+```
+
+### Access to the Frontend Application:
+```bash
+http://localhost:3000
 ```
 ## 🔎 How It Works
 
