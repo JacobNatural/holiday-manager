@@ -15,7 +15,7 @@ JWT token-based authentication, Holiday Manager ensures safe and stateless acces
 aligning with modern REST API standards.
 
 Built with maintainability in mind, the application follows best practices in backend development,
-including layered architecture, clear separation of concerns, git clone https://github.com/JacobNatural/holiday-manager.gitand comprehensive validation rules to
+including layered architecture, clear separation of concerns, git clone comprehensive validation rules to
 prevent invalid or conflicting vacation dates.
 
 Holiday Manager is containerized using Docker, making deployment seamless across environments.
