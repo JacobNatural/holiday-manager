@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+import java.util.List;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -55,9 +56,20 @@ public class AppAuthorizationFilter extends BasicAuthenticationFilter {
             FilterChain chain) throws IOException, ServletException {
         var uri = request.getRequestURI();
 
-        if (!uri.equals("/users") && !uri.equals("/login") &&
-                !uri.equals("/users/refresh") && !uri.equals("/users/lost") &&
-                !uri.equals("/users/new")) {
+        System.out.println(uri);
+        var permitAllUris = List.of(
+                "/users", "/login", "/users/refresh", "/users/lost", "/users/new");
+
+        var permitAllPrefixes = List.of(
+                "/swagger-ui",
+                "/.well-known",
+                "/v3/api-docs"
+        );
+
+        boolean isPermittedUri = permitAllUris.contains(uri) ||
+                permitAllPrefixes.stream().anyMatch(uri::startsWith);
+
+        if (!isPermittedUri) {
 
             var cookies = request.getCookies();
             if (cookies != null) {
@@ -72,14 +84,13 @@ public class AppAuthorizationFilter extends BasicAuthenticationFilter {
                         // Parse the access token and set the authentication context
                         var authorizedUser = tokenService.parseAccessToken("Bearer " + accessToken);
                         SecurityContextHolder.getContext().setAuthentication(authorizedUser);
-                    }catch (Exception e) {
+                    } catch (Exception e) {
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                         response.setContentType("application/json");
                     }
                 }
             }
         }
-//        response.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         // Proceed with the next filter in the chain
         chain.doFilter(request, response);
     }

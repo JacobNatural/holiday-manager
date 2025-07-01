@@ -2,8 +2,8 @@
 # Holiday Manager Application
 
 ![Static Badge](https://img.shields.io/badge/Build-passing-flat)
-[![Static Badge](https://img.shields.io/badge/docs-blue)](https://jacobnatural.github.io/holiday-manager/apidocs/index.html)
-## Overview Backend
+[![Static Badge](https://img.shields.io/badge/docs-blue)](https://jacobnatural.github.io/holiday-manager/index.html)
+## Backend Overview
 Holiday Manager is a secure, scalable, and efficient backend solution built with Spring Boot,
 designed to streamline the management of employee vacation requests. This system provides a
 clean and structured way to handle vacation workflows, offering role-based access, robust validation,

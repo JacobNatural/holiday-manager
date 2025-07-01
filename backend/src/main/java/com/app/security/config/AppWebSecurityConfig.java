@@ -78,7 +78,15 @@ public class AppWebSecurityConfig {
                 })
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html")
+                        .requestMatchers(HttpMethod.GET,
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/swagger-resources/**",
+                                "/swagger-resources/configuration/ui",
+                                "/swagger-resources/configuration/security",
+                                "/webjars/**",
+                                "/favicon.ico")
                         .permitAll()
                         .requestMatchers(HttpMethod.POST, "/users", "/login", "/users/refresh")
                         .permitAll()
